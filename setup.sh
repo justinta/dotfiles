@@ -3,8 +3,9 @@
 ## Puts dotfiles where they need to go
 ## Installs dependencies like lock, vundle
 
+dotfiles=$PWD
+
 place_dots() {
-    dotfiles=$PWD
     cp -r $dotfiles/tmux.conf $HOME/.tmux.conf
     cp -r $dotfiles/vimrc $HOME/.vimrc
     cp -r $dotfiles/zshrc $HOME/.zshrc
@@ -21,10 +22,10 @@ install_lock_deps() {
     apt -y install $pkgs
 
     # i3lock-color install
-    git clone https://github.com/chrjguill/i3lock-color $HOME/Downloads/
+    git clone https://github.com/chrjguill/i3lock-color $HOME/Downloads/i3lock-color
     cd $HOME/Downloads/i3lock-color
     make install
-    cd $HOME
+    cd $dotfiles
 }
 
 install_lock() {
@@ -32,14 +33,16 @@ install_lock() {
     install_lock_deps
 
     # i3lock-fancy dualmonitors
-    git clone https://github.com/meskarune/i3lock-fancy $HOME/Downloads/
+    git clone https://github.com/meskarune/i3lock-fancy $HOME/Downloads/i3lock-fancy
     cp -r $HOME/Downloads/i3lock-fancy/icons/ /usr/local/bin
+
     # checkout dualmonitors 
     cd $HOME/Downloads/i3lock-fancy/
     git checkout dualmonitors
     cp -r $HOME/Downloads/i3lock-fancy/lock /usr/local/bin
     cp -r $HOME/Downloads/i3lock-fancy/lock.png /usr/local/bin
-    cd $HOME
+
+    cd $dotfiles
 }
 
 install_vundle() {
@@ -58,10 +61,11 @@ install_rofi() {
 }
 
 setup() {
+    apt -y install tmux zsh
+    place_dots
     install_lock
     install_vundle
     install_rofi
-    place_dots
 }
 
 setup
