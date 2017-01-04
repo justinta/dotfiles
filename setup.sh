@@ -56,6 +56,10 @@ install_vundle() {
     vim +PluginInstall +qall
 }
 
+termite_setup() {
+    # TODO: build termite
+}
+
 install_rofi() {
     apt -y install rofi
 }
