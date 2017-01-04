@@ -58,6 +58,8 @@ install_vundle() {
 
 termite_setup() {
     # TODO: build termite
+    # If it's ubuntu16, use this: https://github.com/xiouy/termite-install_ubuntu16.04.1
+    # Arch has packages. termite from community or termite-git from aur (for develop version)
 }
 
 install_rofi() {
