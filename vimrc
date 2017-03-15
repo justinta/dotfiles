@@ -18,8 +18,6 @@ set shiftwidth=4	" Number of auto-indent spaces
 set smartindent	" Enable smart-indent
 set smarttab	" Enable smart-tabs
 set softtabstop=4	" Number of spaces per Tab
-set list!
-set listchars=tab:>.,trail:- "show tabs and extra spaces
 set expandtab	" changes tab to spaces
 
 set cursorline
