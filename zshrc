@@ -1,11 +1,11 @@
 # Path to oh-my-zsh installation.
-export ZSH=/home/justin/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="lambda"
 
-source "/home/justin/.config/base16-shell/scripts/base16-ocean.sh"
+source "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
 
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
