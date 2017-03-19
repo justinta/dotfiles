@@ -1,23 +1,15 @@
-# Path to oh-my-zsh installation.
+# Oh My ZSH stuff
 export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="lambda"
 
+# Colors
 source "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
 
+# Global envs
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-# Plugins
-plugins=(git python pylint)
-
-# User configuration
-#export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/pkg/bin:/usr/pkg/sbin:/Users/justin1/Scripts"
-# export MANPATH="/usr/local/man:$MANPATH"
-#PATH=$PATH:~/Scripts
 
 autoload -U colors && colors
 autoload -U compinit
@@ -29,13 +21,18 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+# Set title bar name
+case $TERM in
+    xterm*)
+        precmd () {print -Pn "\e]0;%~\a"}
+        ;;
+esac
 
-#####################
-#     Aliases       #
-####################
 # VirtualEnv Aliases #
 alias normal="deactivate; clear; cd"
 
+# Plugins
+plugins=(git python pylint)
 # Syntax Highlighting #
 source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
