@@ -3,6 +3,7 @@ filetype off		" For Vundle
 
 " --- General settings ---
 set number	        " Show line numbers
+set relativenumber      " Relative line numbers
 set wrap	        " wraps lines
 set showmatch	        " Highlight matching brace
 set visualbell	        " Use visual bell (no beeping)
