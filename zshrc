@@ -11,7 +11,6 @@ CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-
 autoload -U colors && colors
 autoload -U compinit && compinit
 
