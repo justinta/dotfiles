@@ -11,6 +11,7 @@ CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
+
 autoload -U colors && colors
 autoload -U compinit && compinit
 
@@ -25,16 +26,36 @@ case $TERM in
         ;;
 esac
 
-# VirtualEnv Aliases #
-alias normal="deactivate; clear; cd"
+# direnv
+eval "$(direnv hook zsh)"
 
 # Work Aliases
-alias tech="ssh tech -t \"tmux a -d -t ostk\""
 
 # Git Aliases
 alias co="git checkout master && git pull && git checkout -b $1"
+alias gs="git status"
+alias gaa="git add -A"
+alias grs="git rs"
+alias grc="git rc"
+
+# Venv 
+alias activate="source $HOME/.envs/$1/bin/activate"
+
+
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
+#export JRE_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
+
+export PATH=$PATH:$JAVA_HOME/bin
 
 # Plugins
-plugins=(git python pylint)
+plugins=(git python pylint kubectl)
 # Syntax Highlighting #
-source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/juanderson/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/juanderson/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(direnv hook zsh)"

@@ -24,6 +24,14 @@ set cursorline
 set undolevels=1000     " Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
+set complete+=kspell    " Spell checking
+set completeopt=menuone,longest  " Menu options
+set shortmess+=c        " Turn off the spam when autocompleting
+
+set foldmethod=indent   " Fold on indents
+set foldlevel=99        " All folds open
+noremap <space> za
+
 " --- Vundle settings ---
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -36,18 +44,29 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'chriskempson/base16-vim'
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'saltstack/salt-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'dag/vim-fish'
+Plugin 'rodjek/vim-puppet'
+Plugin 'vim-python/python-syntax'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'itkq/fluentd-vim'
 
 call vundle#end()
 
+" --- Python-Syntax settings ---
+let g:python_highlight_all=1
+
+" --- Nord settings ---
+"colorscheme nord
+
 " --- Base16 settings ---
 set background=dark
-colorscheme base16-ocean
+colorscheme base16-tomorrow-night
 let base16colorspace=256
 let airline_theme='base16'
 
